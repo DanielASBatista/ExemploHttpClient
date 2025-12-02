@@ -3,22 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExercicioHttpClient.Views.PostagensView"
              Title="PostagensView">
-    <VerticalStackLayout>
-        <Label 
-            Text="{Binding Id}" 
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Label 
-            Text="{Binding Title}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Label 
-            Text="{Binding Body}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Button
-            Text="Carregar"
-            Command="{Binding CarregarPostagensCommand}"
-            />
-    </VerticalStackLayout>
-</ContentPage>
+    
+        <CollectionView ItemsSource="{Binding Listar}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout Padding="10">
+                        <Label 
+                                Text="{Binding Id}" 
+                                VerticalOptions="Center" 
+                                HorizontalOptions="Center" />
+                        <Label 
+                                Text="{Binding Title}"
+                                VerticalOptions="Center" 
+                                HorizontalOptions="Center" />
+                        <Label 
+                                Text="{Binding Body}"
+                                VerticalOptions="Center" 
+                                HorizontalOptions="Center" />
+                    <Button
+                                Text="Carregar"
+                                Command="{Binding CarregarPostagensCommand}"
+                                />
+                </VerticalStackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+    
